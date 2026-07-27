@@ -1,5 +1,5 @@
 class Urls {
-  static String baseUrl = 'https://task.teamrabbil.com/api/v1';
+    static String baseUrl = 'https://task.teamostad.com/api/v1';
 
   static String changeTaskUrl(String taskId, String status) =>
       '$baseUrl/updateTaskStatus/$taskId/$status';

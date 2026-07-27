@@ -60,7 +60,7 @@ class _CompletedTaskScreenState extends State<CompletedTaskScreen> {
     inProgress = true;
     setState(() {});
     final response = await NetworkUtils().getMethod(
-        'https://task.teamrabbil.com/api/v1/listTaskByStatus/Completed');
+        'https://task.teamostad.com/api/v1/listTaskByStatus/Completed');
 
     if (response != null) {
       completedTaskModel = TaskModel.fromJson(response);

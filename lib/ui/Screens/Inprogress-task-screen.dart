@@ -59,7 +59,7 @@ class _InprogressTaskScreenState extends State<InprogressTaskScreen> {
     inProgress = true;
     setState(() {});
     final response = await NetworkUtils().getMethod(
-        'https://task.teamrabbil.com/api/v1/listTaskByStatus/Progress');
+        'https://task.teamostad.com/api/v1/listTaskByStatus/Progress');
 
     if (response != null) {
       inProgressTaskModel = TaskModel.fromJson(response);

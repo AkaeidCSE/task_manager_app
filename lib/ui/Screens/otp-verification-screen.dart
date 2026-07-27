@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:taskmanager/ui/Screens/reset-password-screen.dart';
 import '../../data/network-utils.dart';
 import '../../data/urls.dart';
@@ -44,35 +43,18 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     'A 6 digits verification pin will be sent to your email address',
                     style: screenSubTitleStyle),
                 const SizedBox(height: 24),
-                PinCodeTextField(
+                TextFormField(
                   controller: otpController,
-                  length: 6,
-                  obscureText: false,
-                  animationType: AnimationType.fade,
-                  pinTheme: PinTheme(
-                      shape: PinCodeFieldShape.box,
-                      borderRadius: BorderRadius.circular(8),
-                      fieldHeight: 50,
-                      fieldWidth: 40,
-                      activeFillColor: Colors.white,
-                      inactiveFillColor: Colors.white,
-                      selectedFillColor: Colors.white,
-                      activeColor: Colors.green),
-                  animationDuration: const Duration(milliseconds: 300),
-                  backgroundColor: Colors.transparent,
-                  enableActiveFill: true,
-                  onCompleted: (v) {
-                    log("Completed");
-                  },
+                  keyboardType: TextInputType.number,
+                  maxLength: 6,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Enter 6-digit code',
+                  ),
                   onChanged: (value) {
                     log(value);
                     setState(() {});
                   },
-                  beforeTextPaste: (text) {
-                    log("Allowing to paste $text");
-                    return true;
-                  },
-                  appContext: context,
                 ),
                 const SizedBox(
                   height: 24,

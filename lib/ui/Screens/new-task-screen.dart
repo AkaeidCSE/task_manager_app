@@ -69,7 +69,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     inProgress = true;
     setState(() {});
     final response = await NetworkUtils()
-        .getMethod('https://task.teamrabbil.com/api/v1/listTaskByStatus/New');
+        .getMethod('https://task.teamostad.com/api/v1/listTaskByStatus/New');
     if (response != null) {
       newTaskModel = TaskModel.fromJson(response);
     } else {
@@ -83,7 +83,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
 
   Future<void> statusCount() async {
     final responseNewTask = await NetworkUtils()
-        .getMethod('https://task.teamrabbil.com/api/v1/listTaskByStatus/New');
+        .getMethod('https://task.teamostad.com/api/v1/listTaskByStatus/New');
     final getNewTaskModel = TaskModel.fromJson(responseNewTask);
 
     setState(() {
@@ -91,21 +91,21 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     });
 
     final responseCancelTask = await NetworkUtils().getMethod(
-        'https://task.teamrabbil.com/api/v1/listTaskByStatus/Cancelled');
+        'https://task.teamostad.com/api/v1/listTaskByStatus/Cancelled');
     final getCaneTaskModel = TaskModel.fromJson(responseCancelTask);
     setState(() {
       count2 = "${getCaneTaskModel.data?.length ?? 0}";
     });
 
     final responseCompletedTask = await NetworkUtils().getMethod(
-        'https://task.teamrabbil.com/api/v1/listTaskByStatus/Completed');
+        'https://task.teamostad.com/api/v1/listTaskByStatus/Completed');
     final getCompletedTaskModel = TaskModel.fromJson(responseCompletedTask);
     setState(() {
       count3 = "${getCompletedTaskModel.data?.length ?? 0}";
     });
 
     final responseProgressTask = await NetworkUtils().getMethod(
-        'https://task.teamrabbil.com/api/v1/listTaskByStatus/Progress');
+        'https://task.teamostad.com/api/v1/listTaskByStatus/Progress');
     final getProgressTaskModel = TaskModel.fromJson(responseProgressTask);
     setState(() {
       count4 = "${getProgressTaskModel.data?.length ?? 0}";

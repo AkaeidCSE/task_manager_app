@@ -52,7 +52,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     }
 
     final result = await NetworkUtils().postMethod(
-        'https://task.teamrabbil.com/api/v1/profileUpdate',
+        'https://task.teamostad.com/api/v1/profileUpdate',
         body: bodyParams);
     if (result != null && result['status'] == 'success') {
       if (mounted) {

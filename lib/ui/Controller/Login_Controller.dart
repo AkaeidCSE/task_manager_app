@@ -11,7 +11,7 @@ class LoginController extends GetxController {
     _inProgress = true;
     update();
     final result = await NetworkUtils().postMethod(
-      'https://task.teamrabbil.com/api/v1/login',
+      'https://task.teamostad.com/api/v1/login',
       body: {
         'email': email,
         'password': password,

@@ -16,7 +16,7 @@ class NewTaskController extends GetxController{
     _inProgress = true;
     update();
     final response = await NetworkUtils()
-        .getMethod('https://task.teamrabbil.com/api/v1/listTaskByStatus/New');
+        .getMethod('https://task.teamostad.com/api/v1/listTaskByStatus/New');
     _inProgress = false;
     if (response != null) {
       _newTaskModel = TaskModel.fromJson(response);

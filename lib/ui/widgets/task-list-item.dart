@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TaskListItem extends StatelessWidget {
-   TaskListItem({
+   const TaskListItem({
     Key? key,
     required this.subject,
     required this.description,
@@ -15,7 +15,7 @@ class TaskListItem extends StatelessWidget {
   final String subject, description, type;
   final VoidCallback onEdit, onDelete;
   final Color? backgroundColor;
-  dynamic date;
+  final dynamic date;
 
   @override
   Widget build(BuildContext context) {

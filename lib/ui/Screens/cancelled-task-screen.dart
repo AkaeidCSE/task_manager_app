@@ -60,7 +60,7 @@ class _CancelledTaskScreenState extends State<CancelledTaskScreen> {
     inProgress = true;
     setState(() {});
     final response = await NetworkUtils().getMethod(
-        'https://task.teamrabbil.com/api/v1/listTaskByStatus/Cancelled');
+        'https://task.teamostad.com/api/v1/listTaskByStatus/Cancelled');
 
     if (response != null) {
       cancelledTaskModel = TaskModel.fromJson(response);

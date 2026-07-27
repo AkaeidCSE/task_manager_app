@@ -110,7 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             inProgress = true;
                             setState(() {});
                             final result = await NetworkUtils().postMethod(
-                                'https://task.teamrabbil.com/api/v1/registration',
+                                'https://task.teamostad.com/api/v1/registration',
                                 body: {
                                   'email': emailTextController.text.trim(),
                                   'mobile': mobileTextController.text.trim(),

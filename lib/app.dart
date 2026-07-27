@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:taskmanager/ui/Controller/Login_Controller.dart';
 import 'package:taskmanager/ui/Controller/New_task_Controller.dart';
 import 'package:taskmanager/ui/Screens/SplashScreen.dart';
+import 'package:taskmanager/ui/Screens/loginScreen.dart';
 
 class TaskManager extends StatefulWidget {
   const TaskManager({Key? key}) : super(key: key);
@@ -20,6 +21,12 @@ class _TaskManagerState extends State<TaskManager> {
       navigatorKey: TaskManager.globalKey,
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
+      routes: {
+        '/LoginScreen': (context) => const LoginScreen(),
+      },
+      getPages: [
+        GetPage(name: '/LoginScreen', page: () => const LoginScreen()),
+      ],
       initialBinding: ControllerBinder(),
       theme: ThemeData(
         primaryColor: Colors.green,

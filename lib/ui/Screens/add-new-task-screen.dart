@@ -84,38 +84,37 @@ class _AddNewTaskScreenState extends State<AddNewTaskScreen> {
                                   inProgress = true;
                                   setState(() {});
 
-                                  final result = await NetworkUtils().postMethod(
-                                      'https://task.teamrabbil.com/api/v1/createTask',
+                                    final result = await NetworkUtils().postMethod(
+                                      'https://task.teamostad.com/api/v1/createTask',
                                       body: {
                                         "title": subjectController.text.trim(),
                                         "description":
                                             descriptionController.text.trim(),
                                         "status": "New"
                                       });
+                                  if (!mounted) return;
+
                                   inProgress = false;
                                   setState(() {});
 
-                                  if (result != null &&
-                                      result['status'] == 'success') {
+                                  if (result != null && result['status'] == 'success') {
                                     subjectController.clear();
                                     descriptionController.clear();
-                                    if (mounted) {
-                                      showSnackBarMessage(
-                                          context, 'Task added successfully!');
-                                      Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const MainBottomNavBar()),
-                                          (route) => false);
-                                    }
+                                    // ignore: use_build_context_synchronously
+                                    showSnackBarMessage(
+                                      context, 'Task added successfully!');
+                                    Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) =>
+                                          const MainBottomNavBar()),
+                                      (route) => false);
                                   } else {
-                                    if (mounted) {
-                                      showSnackBarMessage(
-                                          context,
-                                          'Task adding failed! Try again',
-                                          true);
-                                    }
+                                    // ignore: use_build_context_synchronously
+                                    showSnackBarMessage(
+                                      context,
+                                      'Task adding failed! Try again',
+                                      true);
                                   }
                                 }
                               },
